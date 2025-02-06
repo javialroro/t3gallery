@@ -17,6 +17,7 @@ export function TopNav() {
           endpoint={"imageUploader"}
           onClientUploadComplete={(res) => {
             console.log("Upload completed:", res);
+            router.refresh();
           }}
           onUploadError={(error: Error) => {
             console.error("Upload error details:", error);}}

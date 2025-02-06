@@ -5,5 +5,8 @@ import { ourFileRouter } from "./core";
 // Export routes for Next App Router
 export const { GET, POST } = createRouteHandler({
   router: ourFileRouter,
+  config: {
+    isDev: process.env.NODE_ENV === "development",
+  }
   
 });
