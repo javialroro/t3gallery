@@ -13,9 +13,14 @@ export function TopNav() {
             <SignInButton />
         </SignedOut>
         <SignedIn>
-          <UploadButton endpoint={"imageUploader"} onClientUploadComplete={()=> {
-             router.refresh();
-          }}/>
+        <UploadButton
+          endpoint={"imageUploader"}
+          onClientUploadComplete={(res) => {
+            console.log("Upload completed:", res);
+          }}
+          onUploadError={(error: Error) => {
+            console.error("Upload error details:", error);}}
+        />
             <UserButton />
         </SignedIn>
       </div>
