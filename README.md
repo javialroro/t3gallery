@@ -6,8 +6,8 @@
 - [x] Scaffold basic ui with mock data
 - [x] Actually set up a database (vercel postgres/neon)
 - [x] Attach database to UI
-- [] Add authentication (/w clerk)
-- [] Add image upload
+- [x] Add authentication (/w clerk)
+- [x] Add image upload
 - [] "taint" (server-only)
 - [] Use Next/Image component
 - [] Error management (/w Sentry)
