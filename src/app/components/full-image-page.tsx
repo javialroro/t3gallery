@@ -1,11 +1,11 @@
-import { createClerkClient } from "@clerk/nextjs/server";
+import { clerkClient } from "@clerk/nextjs/server";
 import { getMyImage } from "~/server/queries";
 
 
 export default async function FullPageImageView(props: {id: number}) {
   const image = await getMyImage(props.id);
-  const clerkClient = createClerkClient({ secretKey: process.env.CLERK_SECRET_KEY });
-  const uploaderInfo= await clerkClient.users.getUser(image.userId);
+  const client = await clerkClient();
+  const uploaderInfo= await client.users.getUser(image.userId);
   return (
     <div className="flex h-full w-full min-w-0">
         <div className="flex flex-shrink items-center justify-center ">
