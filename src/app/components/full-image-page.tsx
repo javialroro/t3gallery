@@ -1,3 +1,4 @@
+"use server";
 import { clerkClient } from "@clerk/nextjs/server";
 import { getMyImage } from "~/server/queries";
 
