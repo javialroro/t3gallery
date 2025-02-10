@@ -21,16 +21,13 @@ export const ourFileRouter = {
     // Set permissions and file types for this FileRoute
     .middleware(async ({ req }) => {
       // Add debug logging
-      console.log("Starting middleware check");
       const user = await auth();
-      console.log("Auth result:", user ? "User found" : "No user");
       
       if (!user) {
         console.log("Auth failed - throwing unauthorized");
         throw new UploadThingError("Unauthorized");
       }
       
-      console.log("Auth successful for user:", user.userId);
       return { userId: user.userId };
     })
     .onUploadComplete(async ({ metadata, file }) => {
