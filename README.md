@@ -1,6 +1,6 @@
 # T3 Gallery
-
-## TODO
+### Followed the tutorial made by the great @t3dotgg, here I learned a lot about NextJS, deploying with Vercel, authentication with Clerk, error management using Sentry, and analytics using PostHog
+## TO-DO
 
 - [x] Make it deploy (vercel)
 - [x] Scaffold basic ui with mock data
