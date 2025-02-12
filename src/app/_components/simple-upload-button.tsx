@@ -89,6 +89,11 @@ export function SimpleUploadButton() {
         },
       );
     },
+    onUploadError(err) {
+      posthog.capture("upload_error", { error: err.message });
+      toast.dismiss("uploading-toast");
+      toast.error("Upload failed. Please try again.");
+    },
     onClientUploadComplete(res) {
       toast.dismiss("uploading-toast");
       toast("Upload complete!");
