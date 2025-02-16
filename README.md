@@ -15,5 +15,17 @@
 - [x] Update upload button to be less cringe
 - [x] ShadUIify (specifically toast)
 - [x] Analytics
-- [] Delete button (/w Server Actions)
-- [] Ratelimiting (upstash)
+- [x] Delete button (/w Server Actions)
+- [x] Ratelimiting (upstash)
+
+# Modifications made by me
+- [x] Solve different size images grid
+- [] Image captions
+- [] Adding Likes
+- [] Adding Comments
+- [] Friends
+- [] Profile Page
+
+
+
+
