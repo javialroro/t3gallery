@@ -32,9 +32,9 @@ export const ourFileRouter = {
 
       const fullUserData = client.users.getUser(user.userId!);
       
-      if((await fullUserData)?.privateMetadata?.["can-upload"] !== "true") {
-        throw new UploadThingError("User does not have permission to upload");
-      }
+      // if((await fullUserData)?.privateMetadata?.["can-upload"] !== "true") {
+      //   throw new UploadThingError("User does not have permission to upload");
+      // }
       
 
       const { success } = await ratelimit.limit(user.userId!);
