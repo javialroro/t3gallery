@@ -21,7 +21,7 @@
 # Modifications made by me
 - [x] Solve different size images grid
 - [] Image captions
-- [] Adding Likes
+- [x] Adding Likes
 - [] Adding Comments
 - [] Friends
 - [] Profile Page
