@@ -24,9 +24,8 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-  modal,
-}: Readonly<{ children: React.ReactNode; modal: React.ReactNode }>) {
+  children
+}: Readonly<{ children: React.ReactNode;}>) {
   return (
     <ClerkProvider>
       <CSPostHogProvider>
@@ -45,8 +44,6 @@ export default function RootLayout({
               <TopNav />
               <main className="overflow-y-scroll">{children}</main>
             </div>
-            {modal}
-            <div id="modal-root" />
             <Toaster />
           </body>
         </html>

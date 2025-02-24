@@ -4,6 +4,8 @@ import { getImage, getMyImage } from "~/server/queries";
 import { deleteMyImage, hasUserLikedImage } from "~/server/actions";
 import { SimpleLikeButton } from "../_components/simple-like-button";
 import { LikeForm } from "../_components/like-form";
+import { SheetTrigger } from "~/components/ui/sheet";
+import { LikeSheet } from "../_components/like-sheet";
 
 export default async function FullPageImageView(props: { id: number }) {
   const image = await getImage(props.id);
@@ -64,6 +66,7 @@ export default async function FullPageImageView(props: { id: number }) {
           </form>
           <SimpleLikeButton imageId={image.id} initialLiked={isLiked} />
         </div>
+        <LikeSheet imageId={image.id}/>
       </div>
     </div>
   );

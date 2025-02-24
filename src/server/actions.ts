@@ -7,6 +7,7 @@ import { and, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import analyticsServerClient from "./analytics";
+import { clerkClient } from "@clerk/nextjs/server";
 
 export async function deleteMyImage(id: number) {
   try {
@@ -67,3 +68,35 @@ export async function toggleLike(imageId: number, shouldLike: boolean) {
     await db.delete(likes).where(eq(likes.imageId, imageId)).execute();
   }
 }
+
+export async function getImageLikes(
+  imageId: number,
+): Promise<{ fullName: string | null; imageUrl: string }[]> {
+  const client = await clerkClient();
+
+  // Fetch user IDs who liked the image
+  const likesUsers = await db
+    .select({ userId: likes.userId })
+    .from(likes)
+    .where(eq(likes.imageId, imageId))
+    .execute();
+
+  // Fetch user information for each user ID
+  const userInfoPromises = likesUsers.map(async (like) => {
+    const user = await client.users.getUser(like.userId);
+    return {
+      fullName: user.fullName,
+      imageUrl: user.imageUrl,
+    };
+  });
+
+  // Wait for all user info requests to complete
+  const usersInfo = await Promise.all(userInfoPromises);
+
+  return usersInfo;
+}
+
+
+
+
+

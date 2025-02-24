@@ -3,6 +3,7 @@ import { auth } from "@clerk/nextjs/server";
 import { db } from "~/server/db";
 import { likes } from "~/server/db/schema";
 import { eq, and } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
 
 export async function POST(req: Request) {
   const user = await auth();
@@ -35,6 +36,10 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Database error" }, { status: 500 });
     }
   }
+
+  // Revalidar el path después de la acción
+  const pathToRevalidate = `/img/${imageId}`; // Cambia esto según la ruta que necesites revalidar
+  revalidatePath(pathToRevalidate);
 
   return NextResponse.json({ success: true });
 }

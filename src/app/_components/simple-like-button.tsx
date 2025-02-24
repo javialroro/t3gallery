@@ -1,5 +1,6 @@
 "use client"; // Ensure this is a client component
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 function LikeSVG({ className = "size-6" }) {
@@ -30,19 +31,32 @@ export function SimpleLikeButton({
 }) {
   const [isLiked, setIsLiked] = useState(initialLiked);
 
+  const router = useRouter(); // Usa useRouter para recargar la página
+
   async function handleLike(event: React.MouseEvent<HTMLButtonElement>) {
-    event.preventDefault(); // Prevents default form submission
+    event.preventDefault(); // Evita el comportamiento predeterminado del botón
 
     const newLikedState = !isLiked;
-    setIsLiked(newLikedState);
+    setIsLiked(newLikedState); // Actualiza el estado local inmediatamente
 
     try {
-      await fetch("/api/toggle-like", {
+      const response = await fetch("/api/toggle-like", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ imageId, liked: newLikedState }),
       });
+
+      if (response.ok) {
+        // Recarga la página para reflejar los cambios después de revalidar el path
+        router.refresh();
+      } else {
+        // Si la solicitud falla, revierte el estado local
+        setIsLiked(!newLikedState);
+      }
     } catch (error) {
       console.error("Error toggling like:", error);
+      // Si hay un error, revierte el estado local
+      setIsLiked(!newLikedState);
     }
   }
 
