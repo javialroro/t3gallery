@@ -6,7 +6,7 @@ export function TopNav() {
     <nav className="flex w-full items-center justify-between border-b p-4 text-xl font-semibold">
       <div className="flex items-center gap-4">
         <GoBackButton />
-        Gallery
+        YourGallery
       </div>
 
       <div className="flex flex-row items-center gap-4">

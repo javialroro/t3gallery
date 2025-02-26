@@ -1,4 +1,4 @@
-# T3 Gallery
+# YourGallery
 ### Followed the tutorial made by the great [@t3dotgg](https://github.com/t3dotgg), here I learned a lot about NextJS, deploying with Vercel, authentication with Clerk, error management using Sentry, and analytics using PostHog
 ## TO-DO
 
