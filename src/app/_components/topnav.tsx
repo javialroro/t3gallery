@@ -1,4 +1,10 @@
-import { SignedIn, SignedOut, SignIn, SignInButton, UserButton } from "@clerk/nextjs";
+import {
+  SignedIn,
+  SignedOut,
+  SignIn,
+  SignInButton,
+  UserButton,
+} from "@clerk/nextjs";
 import { SimpleUploadButton } from "./simple-upload-button";
 import { GoBackButton } from "./back-button";
 export function TopNav() {

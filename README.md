@@ -1,5 +1,7 @@
 # YourGallery
+
 ### Followed the tutorial made by the great [@t3dotgg](https://github.com/t3dotgg), here I learned a lot about NextJS, deploying with Vercel, authentication with Clerk, error management using Sentry, and analytics using PostHog
+
 ## TO-DO
 
 - [x] Make it deploy (vercel)
@@ -19,13 +21,9 @@
 - [x] Ratelimiting (upstash)
 
 # Modifications made by me
+
 - [x] Solve different size images grid
 - [] Image captions
 - [x] Adding Likes
 - [] Adding Comments
-- [] Friends
 - [] Profile Page
-
-
-
-
